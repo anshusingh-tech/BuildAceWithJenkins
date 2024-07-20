@@ -1,4 +1,4 @@
-<project name="IIB-CI-MAIN" default="dev" basedir="C:\ProgramData\Jenkins\.jenkins\workspace\${env.JOB_NAME}\">
+<project name="IIB-CI-MAIN" default="dev" basedir="C:\ProgramData\Jenkins\.jenkins\workspace\">
  <description>IIB continous Integration Demo (main script)</description>
 
  <target name="init">
@@ -25,9 +25,9 @@
    
    <exec executable="${path.iib}\tools\mqsicreatebar">
     <arg value="-data"></arg>
-	<arg value="${basedir}\ACEApplication"></arg>
+	<arg value="${basedir}\${env.JOB_NAME}\ACEApplication"></arg>
 	<arg value="-b"></arg>
-	<arg value="${basedir}\Buildpackage\${empserv.bar}"></arg>
+	<arg value="${basedir}\${env.JOB_NAME}\Buildpackage\${empserv.bar}"></arg>
 	<arg value="-a"></arg>
 	<arg value="aceFunction"></arg>
 <!--	<arg value="-l"></arg> -->
@@ -40,7 +40,7 @@
 	<arg value="-e"/>
 	<arg value="${iib.svr}"></arg>
 	<arg value="-a"></arg>
-	<arg value="${basedir}\Buildpackage\${empserv.bar}"></arg>
+	<arg value="${basedir}\${env.JOB_NAME}\Buildpackage\${empserv.bar}"></arg>
 	<arg value="-m"></arg>
    </exec>
    
