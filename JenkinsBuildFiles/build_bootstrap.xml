@@ -19,9 +19,9 @@
  
  
  <exec executable="cmd">
+ <env key="jobname" value="${env.JOB_NAME}"/>
  <arg value="/c"></arg>
  <arg value="C:/ProgramData/Jenkins/.jenkins/workspace/${env.JOB_NAME}/JenkinsBuildFiles/executeAntBuild.cmd"></arg>
- <arg value="${env.JOB_NAME}"></arg>
  </exec>
  </target> 
 </project>
