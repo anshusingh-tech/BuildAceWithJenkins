@@ -20,7 +20,8 @@
  
  <exec executable="cmd">
  <arg value="/c"></arg>
- <arg value="C:/ProgramData/Jenkins/.jenkins/workspace/${env.JOB_NAME}/JenkinsBuildFiles/executeAntBuild.cmd '${env.JOB_NAME}'"></arg>
+ <arg value="C:/ProgramData/Jenkins/.jenkins/workspace/${env.JOB_NAME}/JenkinsBuildFiles/executeAntBuild.cmd"></arg>
+ <arg value="${env.JOB_NAME}"></arg>
  </exec>
  </target> 
 </project>
