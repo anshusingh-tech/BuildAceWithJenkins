@@ -6,7 +6,7 @@
    </tstamp>
    <property environment="env">
    </property>
-   <property name="path.buid" value="C:\ProgramData\Jenkins\.jenkins\workspace\AcefunctionGit\JenkinsBuildFiles"></property>
+   <property name="path.buid" value="C:\ProgramData\Jenkins\.jenkins\workspace\${env.JOB_NAME}\JenkinsBuildFiles"></property>
    <property name="build.main" value="${path.build}/build_main.xml"></property>
    <property file="${path.build}/build.properties"></property>
    
@@ -20,7 +20,7 @@
  
  <exec executable="cmd">
  <arg value="/c"></arg>
- <arg value="C:/ProgramData/Jenkins/.jenkins/workspace/AcefunctionGit/JenkinsBuildFiles/executeAntBuild.cmd"></arg>
+ <arg value="C:/ProgramData/Jenkins/.jenkins/workspace/${env.JOB_NAME}/JenkinsBuildFiles/executeAntBuild.cmd"></arg>
  </exec>
  </target> 
 </project>

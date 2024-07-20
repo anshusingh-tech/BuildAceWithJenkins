@@ -1,4 +1,4 @@
-<project name="IIB-CI-MAIN" default="dev" basedir="C:\ProgramData\Jenkins\.jenkins\workspace\AcefunctionGit\">
+<project name="IIB-CI-MAIN" default="dev" basedir="C:\ProgramData\Jenkins\.jenkins\workspace\${env.JOB_NAME}\">
  <description>IIB continous Integration Demo (main script)</description>
 
  <target name="init">
@@ -6,7 +6,7 @@
    </tstamp>
    <property environment="env">
    </property>
-   <property name="path.build" value="C:\ProgramData\Jenkins\.jenkins\workspace\AcefunctionGit\JenkinsBuildFiles"></property>
+   <property name="path.build" value="C:\ProgramData\Jenkins\.jenkins\workspace\${env.JOB_NAME}\JenkinsBuildFiles"></property>
    <property file="${path.build}/build.properties"></property>
    
  </target>
