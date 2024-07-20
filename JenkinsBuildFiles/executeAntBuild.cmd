@@ -1,4 +1,4 @@
-echo calling mqsiprofile
+echo calling mqsiprofile%1
 call "%IIB_PATH%\server\bin\mqsiprofile.cmd"
 
 echo %1
