@@ -1,0 +1,26 @@
+<project name="IIB-CI-BOOTSTRAP" default="bootstrap" basedir=".">
+ <description>IIB continous Integration Demo (bootstrap script)</description>
+
+ <target name="boostrap_init">
+   <tstamp>
+   </tstamp>
+   <property environment="env">
+   </property>
+   <property name="path.buid" value="C:\ProgramData\Jenkins\.jenkins\workspace\AcefunctionGit\JenkinsBuildFiles"></property>
+   <property name="build.main" value="${path.build}/build_main.xml"></property>
+   <property file="${path.build}/build.properties"></property>
+   
+ </target>
+
+ <target name="bootstrap" depends="boostrap_init">
+ <property name ="wkspc.owner" value="${user.iib}:${group.iib}"></property>
+ <property name ="wkspc.mode" value="go+rw"></property>
+ <property name ="args.ant" value=". ${iib.mqsiprofile}"></property>
+ 
+ 
+ <exec executable="cmd">
+ <arg value="/c"></arg>
+ <arg value="C:/ProgramData/Jenkins/.jenkins/workspace/AcefunctionGit/JenkinsBuildFiles/executeAntBuild.cmd"></arg>
+ </exec>
+ </target> 
+</project>

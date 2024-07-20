@@ -1,0 +1,51 @@
+<project name="IIB-CI-MAIN" default="dev" basedir="C:\ProgramData\Jenkins\.jenkins\workspace\AcefunctionGit\">
+ <description>IIB continous Integration Demo (main script)</description>
+
+ <target name="init">
+   <tstamp>
+   </tstamp>
+   <property environment="env">
+   </property>
+   <property name="path.build" value="C:\ProgramData\Jenkins\.jenkins\workspace\AcefunctionGit\JenkinsBuildFiles"></property>
+   <property file="${path.build}/build.properties"></property>
+   
+ </target>
+ 
+ 
+ <target name="dev" depends="init">
+   <exec executable="${path.iib}\server\bin\mqsiprofile.cmd"></exec>
+   <exec executable="${path.iib}\server\bin\mqsiservice">
+    <arg value="-v"></arg>
+   </exec>
+   
+   <exec executable="${path.iib}\server\bin\mqsilist">
+    <arg value="${iib.node}"></arg>
+   </exec>
+   
+   
+   <exec executable="${path.iib}\tools\mqsicreatebar">
+    <arg value="-data"></arg>
+	<arg value="${basedir}\ACEApplication"></arg>
+	<arg value="-b"></arg>
+	<arg value="${basedir}\Buildpackage\${empserv.bar}"></arg>
+	<arg value="-a"></arg>
+	<arg value="aceFunction"></arg>
+<!--	<arg value="-l"></arg> -->
+<!--	<arg value="EmployeeService_interface_and_maps"></arg> -->
+	<arg value="-deployAsSource"></arg>
+   </exec>
+   
+   <exec executable="${path.iib}\server\bin\mqsideploy">
+	<arg value="${iib.node}"/>
+	<arg value="-e"/>
+	<arg value="${iib.svr}"></arg>
+	<arg value="-a"></arg>
+	<arg value="${basedir}\Buildpackage\${empserv.bar}"></arg>
+	<arg value="-m"></arg>
+   </exec>
+   
+ </target>
+
+
+ 
+</project>
